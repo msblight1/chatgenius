@@ -1,0 +1,812 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatGenius | AI Chatbot Solutions for Your Business</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#3B82F6',
+                        secondary: '#10B981',
+                        dark: '#1F2937',
+                        light: '#F9FAFB',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #3B82F6 0%, #10B981 100%);
+        }
+
+        .hero-pattern {
+            background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+
+            .testimonial-card:hover {
+                transform: scale(1.03);
+            }
+
+        .pricing-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .chatbot-demo {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+    </style>
+</head>
+<body class="bg-light">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm fixed w-full z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <i class="fas fa-robot text-primary text-2xl mr-2"></i>
+                        <span class="text-xl font-bold text-dark">ChatGenius</span>
+                    </div>
+                </div>
+                <div class="hidden md:ml-6 md:flex md:items-center md:space-x-8">
+                    <a href="#features" class="text-dark hover:text-primary px-3 py-2 font-medium">Features</a>
+                    <a href="#pricing" class="text-dark hover:text-primary px-3 py-2 font-medium">Pricing</a>
+                    <a href="#contact" class="bg-primary text-white px-4 py-2 rounded-md font-medium hover:bg-opacity-90 transition">Get Started</a>
+                </div>
+                <div class="-mr-2 flex items-center md:hidden">
+                    <button type="button" id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-dark hover:text-primary focus:outline-none">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#features" class="block px-3 py-2 text-dark hover:text-primary font-medium">Features</a>
+                <a href="#pricing" class="block px-3 py-2 text-dark hover:text-primary font-medium">Pricing</a><a href="#testimonials" class="block px-3 py-2 text-dark hover:text-primary font-medium">Testimonials</a>
+                <a href="#contact" class="block w-full text-center bg-primary text-white px-4 py-2 rounded-md font-medium hover:bg-opacity-90 transition mt-2">Get Started</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="gradient-bg hero-pattern pt-24 pb-20 md:pt-32 md:pb-28">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="md:flex md:items-center md:justify-between">
+                <div class="md:w-1/2 text-center md:text-left">
+                    <h1 class="text-4xl md:text-5xl font-bold text-primary leading-tight mb-6">
+                        Access the power of<br> generative AI
+                    </h1>
+                    <p class="text-xl text-black opacity-90 mb-8">
+                        Start leveraging the transformative power of AI for your business - triple your effective manpower with just a single plug-and-play integration.
+                    </p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 justify-center md:justify-start">
+                        <a href="#contact" class="bg-white text-primary px-6 py-3 rounded-md font-bold hover:bg-opacity-90 transition text-center">
+                            Get Started Free
+                        </a>
+                        <a href="#demo" class="bg-transparent border-2 border-white text-white px-6 py-3 rounded-md font-bold hover:bg-white hover:bg-opacity-10 transition text-center">
+                            See Demo
+                        </a>
+                    </div>
+                </div>
+                <div class="hidden md:block md:w-1/2 mt-10 md:mt-0">
+                    <div class="relative chatbot-demo">
+                        <div class="absolute -top-6 -left-6 w-64 h-64 bg-white bg-opacity-10 rounded-full filter blur-3xl"></div>
+                        <div class="absolute -bottom-6 -right-6 w-64 h-64 bg-white bg-opacity-10 rounded-full filter blur-3xl"></div>
+                        <div class="relative bg-white p-6 rounded-xl shadow-2xl">
+                            <div class="flex items-center mb-4">
+                                <div class="w-3 h-3 rounded-full bg-red-500 mr-2"></div>
+                                <div class="w-3 h-3 rounded-full bg-yellow-500 mr-2"></div>
+                                <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                            </div>
+                            <div class="bg-gray-100 p-4 rounded-lg mb-4">
+                                <div class="flex items-start">
+                                    <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white font-bold mr-3">CG</div>
+                                    <div class="bg-white p-3 rounded-lg shadow-sm max-w-xs">
+                                        <p class="text-sm">Hi there! I'm ChatGenius. How can I help you today? I can answer questions about products, help with orders, or connect you with a human if needed.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-gray-100 p-4 rounded-lg">
+                                <div class="flex items-start justify-end">
+                                    <div class="bg-primary text-white p-3 rounded-lg shadow-sm max-w-xs">
+                                        <p class="text-sm">What are your business hours?</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-gray-100 p-4 rounded-lg mt-2">
+                                <div class="flex items-start">
+                                    <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white font-bold mr-3">CG</div>
+                                    <div class="bg-white p-3 rounded-lg shadow-sm max-w-xs">
+                                        <p class="text-sm">We're available 24/7! Our physical store is open 9am-9pm, but I'm here to help anytime with questions or orders.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-4 flex items-center">
+                                <div class="flex-1 border border-gray-300 rounded-l-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary">
+                                    <div class="text-sm">Type your message...</div>
+                                </div>
+                                <button class="bg-primary text-white px-4 py-2 rounded-r-md hover:bg-opacity-90">
+                                    <i class="fas fa-paper-plane"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Features Section -->
+    <section id="features" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-dark mb-4">Powerful Chatbot Features</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Our AI chatbots come packed with everything you need to deliver exceptional customer experiences.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="bg-white p-8 rounded-xl shadow-md feature-card transition duration-300">
+                    <div class="w-14 h-14 bg-primary bg-opacity-10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-brain text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-dark mb-3">Natural Language Understanding</h3>
+                    <p class="text-gray-600">
+                        Our chatbots understand customer intent with human-like comprehension, handling complex questions and conversational flows effortlessly.
+                    </p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="bg-white p-8 rounded-xl shadow-md feature-card transition duration-300">
+                    <div class="w-14 h-14 bg-secondary bg-opacity-10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-random text-secondary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-dark mb-3">Omnichannel Deployment</h3>
+                    <p class="text-gray-600">
+                        Deploy the same chatbot across your website, Instagram DMs, Facebook Messenger, and more with consistent experience everywhere.
+                    </p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="bg-white p-8 rounded-xl shadow-md feature-card transition duration-300">
+                    <div class="w-14 h-14 bg-purple-500 bg-opacity-10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-database text-purple-500 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-dark mb-3">Customized AI Training</h3>
+                    <p class="text-gray-600">
+                        Have AI custom-trained for your specific business needs. Ask about our knowledge base integration service, free with any purchased plan
+                    </p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="bg-white p-8 rounded-xl shadow-md feature-card transition duration-300">
+                    <div class="w-14 h-14 bg-blue-500 bg-opacity-10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-user-tie text-blue-500 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-dark mb-3">Human Oversight Assurance</h3>
+                    <p class="text-gray-600">
+                        Our AI models are trained with real-world data to prevent prompt hacking and assure compliance.
+                    </p>
+                </div>
+
+                <!-- Feature 5 -->
+                <div class="bg-white p-8 rounded-xl shadow-md feature-card transition duration-300">
+                    <div class="w-14 h-14 bg-yellow-500 bg-opacity-10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-chart-bar text-yellow-500 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-dark mb-3">Customer Analytics</h3>
+                    <p class="text-gray-600">
+                        Gain insights into customer interactions, popular queries, and chatbot performance with custom analytics packages.
+                    </p>
+                </div>
+
+                <!-- Feature 6 -->
+                <div class="bg-white p-8 rounded-xl shadow-md feature-card transition duration-300">
+                    <div class="w-14 h-14 bg-red-500 bg-opacity-10 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-cogs text-red-500 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-dark mb-3">External integrations</h3>
+                    <p class="text-gray-600">
+                        Connect your ChatGenius with all of the tools your business already uses, like Shopify or your CRM of choice
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Demo Section -->
+    <section id="demo" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="md:flex md:items-center md:justify-between">
+                <div class="md:w-1/2 mb-12 md:mb-0 md:pr-12">
+                    <h2 class="text-3xl font-bold text-dark mb-6">See Our Chatbot in Action</h2>
+                    <p class="text-gray-600 mb-8">
+                        Experience how our AI chatbot can transform your customer interactions with this live demo. Try asking about our:
+                    </p>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center">
+                            <div class="w-6 h-6 rounded-full bg-primary bg-opacity-20 flex items-center justify-center text-primary mr-3">
+                                <i class="fas fa-check text-xs"></i>
+                            </div>
+                            <span class="text-gray-700">Product information</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-6 h-6 rounded-full bg-primary bg-opacity-20 flex items-center justify-center text-primary mr-3">
+                                <i class="fas fa-check text-xs"></i>
+                            </div>
+                            <span class="text-gray-700">Pricing plans</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-6 h-6 rounded-full bg-primary bg-opacity-20 flex items-center justify-center text-primary mr-3">
+                                <i class="fas fa-check text-xs"></i>
+                            </div>
+                            <span class="text-gray-700">Support questions</span>
+                        </li>
+                        <li class="flex items-center">
+                            <div class="w-6 h-6 rounded-full bg-primary bg-opacity-20 flex items-center justify-center text-primary mr-3">
+                                <i class="fas fa-check text-xs"></i>
+                            </div>
+                            <span class="text-gray-700">Business hours</span>
+                        </li>
+                    </ul>
+                    <a href="#contact" class="inline-block bg-primary text-white px-6 py-3 rounded-md font-bold hover:bg-opacity-90 transition">
+                        Request Custom Demo
+                    </a>
+                </div>
+
+                <!-- Add this to your HTML page, preferably before the closing </body> tag -->
+                <script src="https://testmyprompt.com/widget/681149f84ee5988051ea6d19/widget.js"></script>
+                <script>
+                    // Initialize the widget after the script loads
+                    document.addEventListener('DOMContentLoaded', function () {
+                        window.AIChatWidget.init({
+                            widgetId: "681149f84ee5988051ea6d19"
+                        });
+                    });
+                </script>
+            </div>
+        </div>
+        <div class="flex items-center">
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-16 gradient-bg text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8 text-center">
+                <div class="p-6">
+                    <div class="text-4xl font-bold mb-2">24/7</div>
+                    <div class="text-lg">Customer Support</div>
+                </div>
+                <div class="p-6">
+                    <div class="text-4xl font-bold mb-2">70%</div>
+                    <div class="text-lg">Reduction in Support Costs</div>
+                </div>
+                <div class="p-6">
+                    <div class="text-4xl font-bold mb-2">90%</div>
+                    <div class="text-lg">Query Resolution Rate</div>
+                </div>
+                <div class="p-6">
+                    <div class="text-4xl font-bold mb-2">4.8/5</div>
+                    <div class="text-lg">Customer Satisfaction</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-dark mb-4">Simple, Transparent Pricing</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Choose the plan that fits your needs. No hidden fees, cancel anytime.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <!-- Starter Plan -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden pricing-card transition duration-300">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-dark mb-2">Starter</h3>
+                        <p class="text-gray-600 mb-6">Perfect for small businesses</p>
+                        <div class="mb-6">
+                            <span class="text-4xl font-bold text-dark">$299</span>
+                            <span class="text-gray-600">/month</span>
+                        </div>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span>Up to 1,000 conversations/month</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span>1 free external integration</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span>Basic analytics</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span>Email support</span>
+                            </li>
+                        </ul>
+                        <a href="#contact" class="block w-full bg-gray-100 text-dark text-center py-3 rounded-md font-medium hover:bg-gray-200 transition">
+                            Get Started
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Pro Plan (Featured) -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden pricing-card transition duration-300 transform scale-105 relative">
+                    <div class="absolute top-0 right-0 bg-primary text-white text-xs font-bold px-3 py-1 rounded-bl-lg">
+                        MOST POPULAR
+                    </div>
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-dark mb-2">Pro</h3>
+                        <p class="text-gray-600 mb-6">Ideal for growing businesses</p>
+                        <div class="mb-6">
+                            <span class="text-4xl font-bold text-dark">$599</span>
+                            <span class="text-gray-600">/month</span>
+                        </div>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span>Up to 5,000 conversations/mo</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span>5 free integrations</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span>Advanced analytics</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span>Priority email support</span>
+                            </li>
+                        </ul>
+                        <a href="#contact" class="block w-full bg-primary text-white text-center py-3 rounded-md font-medium hover:bg-opacity-90 transition">
+                            Get Started
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Enterprise Plan -->
+                <div class="bg-white rounded-xl shadow-md overflow-hidden pricing-card transition duration-300">
+                    <div class="p-8">
+                        <h3 class="text-2xl font-bold text-dark mb-2">Enterprise</h3>
+                        <p class="text-gray-600 mb-6">For large organizations</p>
+                        <div class="mb-6">
+                            <span class="text-4xl font-bold text-dark">Custom</span>
+                        </div>
+                        <ul class="space-y-3 mb-8">
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span>Unlimited conversations</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span>Unlimited chatbots</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span>Custom analytics</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-check text-green-500 mr-2"></i>
+                                <span>24/7 phone support</span>
+                            </li>
+                        </ul>
+                        <a href="#contact" class="block w-full bg-gray-100 text-dark text-center py-3 rounded-md font-medium hover:bg-gray-200 transition">
+                            Contact Sales
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-12 text-center">
+                <p class="text-gray-600 mb-4">Need something different?</p>
+                <a href="#contact" class="text-primary font-medium hover:underline">Contact us for custom plans</a>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- CTA Section -->
+    <section class="py-16 bg-primary text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-bold mb-6">Ready to Transform Your Customer Experience?</h2>
+            <p class="text-xl mb-8 max-w-3xl mx-auto">
+                Join thousands of businesses using ChatGenius to provide instant, intelligent support 24/7.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                <a href="#contact" class="bg-white text-primary px-8 py-3 rounded-md font-bold hover:bg-opacity-90 transition">
+                    Get Started Free
+                </a>
+                <a href="#demo" class="bg-transparent border-2 border-white px-8 py-3 rounded-md font-bold hover:bg-white hover:bg-opacity-10 transition">
+                    See Demo
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="md:flex md:items-center md:justify-between">
+                <div class="md:w-1/2 mb-12 md:mb-0 md:pr-12">
+                    <h2 class="text-3xl font-bold text-dark mb-6">Get in Touch</h2>
+                    <p class="text-gray-600 mb-8">
+                        This service is currently a one-man operation run by Misha. Surprised? That's just the power of  leveraging AI. Have questions about my chatbot solutions? Fill out the form and I will get back to you within 24 hours.
+                    </p>
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 rounded-full bg-primary bg-opacity-10 flex items-center justify-center text-primary mr-4">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-dark mb-1">Email Me</h4>
+                                <p class="text-gray-600">msblight1@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 rounded-full bg-primary bg-opacity-10 flex items-center justify-center text-primary mr-4">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-dark mb-1">Call Me</h4>
+                                <p class="text-gray-600">+1 (931) 378-9906</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 rounded-full bg-primary bg-opacity-10 flex items-center justify-center text-primary mr-4">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-dark mb-1">Office Hours</h4>
+                                <p class="text-gray-600">Monday-Friday 9:00AM - 5:30PM</p>
+                            </div>
+                            <div>
+
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="w-10 h-10 rounded-full bg-primary bg-opacity-10 flex items-center justify-center text-primary mr-4">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <div class="bg-gray-50 p-8 rounded-xl shadow-sm">
+                        <form id="contactForm" action="mailto:msblight1@gmail.com" method="POST" enctype="multipart/form-data" name="contactForm.name">
+                            <div class="mb-6">
+                                <label for="name" class="block text-gray-700 font-medium mb-2">Full Name</label>
+                                <input type="text" id="name" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" required>
+                            </div>
+                            <div class="mb-6">
+                                <label for="email" class="block text-gray-700 font-medium mb-2">Email Address</label>
+                                <input type="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" required>
+                            </div>
+                            <div class="mb-6">
+                                <label for="company" class="block text-gray-700 font-medium mb-2">Company Name</label>
+                                <input type="text" id="company" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" required>
+                            </div>
+                            <div class="mb-6">
+                                <label for="message" class="block text-gray-700 font-medium mb-2">What interests you about ChatGenius?</label>
+                                <textarea id="message" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary" required></textarea>
+                            </div>
+                            <button type="submit" value="submit" class="w-full bg-primary text-white px-6 py-3 rounded-md font-bold hover:bg-opacity-90 transition">
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-dark mb-4">Frequently Asked Questions</h2>
+                <p class="text-gray-600">
+                    Everything you need to know about ChatGenius AI chatbots.
+                </p>
+            </div>
+
+            <div class="space-y-4">
+                <!-- FAQ Item 1 -->
+                <div class="bg-white p-6 rounded-xl shadow-sm">
+                    <button class="flex justify-between items-center w-full text-left focus:outline-none faq-toggle">
+                        <h3 class="text-lg font-medium text-dark">How does your AI chatbot understand customer questions?</h3>
+                        <i class="fas fa-chevron-down text-primary transition-transform"></i>
+                    </button>
+                    <div class="hidden mt-4 faq-content">
+                        <p class="text-gray-600">
+                            Our chatbots use advanced natural language processing (NLP) and machine learning to understand customer intent, even with complex or ambiguous phrasing. The AI is trained on millions of customer interactions across industries and continuously improves its understanding over time.
+                        </p>
+                    </div>
+                </div>
+
+
+                <!-- FAQ Item 3 -->
+                <div class="bg-white p-6 rounded-xl shadow-sm">
+                    <button class="flex justify-between items-center w-full text-left focus:outline-none faq-toggle">
+                        <h3 class="text-lg font-medium text-dark">How long does it take to implement a chatbot?</h3>
+                        <i class="fas fa-chevron-down text-primary transition-transform"></i>
+                    </button>
+                    <div class="hidden mt-4 faq-content">
+                        <p class="text-gray-600">
+                            Most customers can deploy a basic chatbot within 24 hours using our pre-built templates. More complex implementations with custom integrations and specialized knowledge bases typically take less than a week. Our team will guide you through the entire process.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="bg-white p-6 rounded-xl shadow-sm">
+                    <button class="flex justify-between items-center w-full text-left focus:outline-none faq-toggle">
+                        <h3 class="text-lg font-medium text-dark">Is there a limit to how many conversations the chatbot can handle?</h3>
+                        <i class="fas fa-chevron-down text-primary transition-transform"></i>
+                    </button>
+                    <div class="hidden mt-4 faq-content">
+                        <p class="text-gray-600">
+                            Our plans include monthly conversation limits, but our infrastructure can scale to handle virtually any volume. Enterprise customers get unlimited conversations. If you exceed your plan's limit, we'll notify you and work with you to upgrade if needed.
+                        </p>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="mt-12 text-center">
+                <p class="text-gray-600 mb-4">Still have questions?</p>
+                <a href="#contact" class="text-primary font-medium hover:underline">Contact me!</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="md:col-span-2">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-robot text-primary text-2xl mr-2"></i>
+                        <span class="text-xl font-bold">ChatGenius</span>
+                    </div>
+                    <p class="text-gray-400 mb-6">
+                        AI-powered chatbots that transform customer experiences and drive business growth.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-facebook text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Product</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#features" class="text-gray-400 hover:text-white transition">Features</a></li>
+                        <li><a href="#solutions" class="text-gray-400 hover:text-white transition">Solutions</a></li>
+                        <li><a href="#pricing" class="text-gray-400 hover:text-white transition">Pricing</a></li>
+                        <li><a href="#demo" class="text-gray-400 hover:text-white transition">Demo</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">API</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Company</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition">About Us</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">
+                    2025 ChatGenius, a Baxter Agentics service.
+                </p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // FAQ accordion
+        const faqToggles = document.querySelectorAll('.faq-toggle');
+
+        faqToggles.forEach(toggle => {
+            toggle.addEventListener('click', () => {
+                const content = toggle.nextElementSibling;
+                const icon = toggle.querySelector('i');
+
+                content.classList.toggle('hidden');
+                icon.classList.toggle('transform');
+                icon.classList.toggle('rotate-180');
+            });
+        });
+
+        // Form submission
+        const contactForm = document.getElementById('contactForm');
+
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const company = document.getElementById('company').value;
+            const message = document.getElementById('message').value;
+
+            // Here you would typically send this data to your server
+            console.log('Form submitted:', { name, email, company, message });
+
+            // Show success message
+            alert('Thank you for your message! Our team will get back to you within 24 hours.');
+
+            // Reset form
+            contactForm.reset();
+        });
+
+        // Demo chatbot functionality
+        const demoChat = document.getElementById('demo-chat');
+        const demoInput = document.getElementById('demo-input');
+        const demoSend = document.getElementById('demo-send');
+
+        const demoResponses = {
+            "hi": "Hello! How can I help you today?",
+            "hello": "Hi there! What can I assist you with?",
+            "what pricing plans do you offer": "We offer three main plans: Starter ($99/mo), Pro ($299/mo), and Enterprise (custom pricing). Would you like details on any specific plan?",
+            "how does the ai work": "Our AI uses natural language processing and machine learning to understand customer questions. It's trained on millions of conversations and continuously improves over time.",
+            "what business hours": "Our support team is available 9am-5pm EST, but our chatbots work 24/7 to answer your questions anytime!",
+            "default": "I'm not sure I understand. Could you try asking about our pricing, features, or how the AI works?"
+        };
+
+        demoSend.addEventListener('click', () => {
+            sendDemoMessage();
+        });
+
+        demoInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendDemoMessage();
+            }
+        });
+
+        function sendDemoMessage() {
+            const message = demoInput.value.trim().toLowerCase();
+            if (message) {
+                // Add user message
+                const userDiv = document.createElement('div');
+                userDiv.className = 'flex items-start justify-end mb-4';
+                userDiv.innerHTML = `
+                            <div class="bg-primary text-white p-3 rounded-lg shadow-sm max-w-xs">
+                                <p class="text-sm">${message}</p>
+                            </div>
+                        `;
+                demoChat.appendChild(userDiv);
+
+                // Add bot response
+                const botDiv = document.createElement('div');
+                botDiv.className = 'flex items-start mb-4';
+
+                let response = demoResponses.default;
+                for (const key in demoResponses) {
+                    if (message.includes(key)) {
+                        response = demoResponses[key];
+                        break;
+                    }
+                }
+
+                botDiv.innerHTML = `
+                            <div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white font-bold mr-3">CG</div>
+                            <div class="bg-white p-3 rounded-lg shadow-sm max-w-xs">
+                                <p class="text-sm">${response}</p>
+                            </div>
+                        `;
+                demoChat.appendChild(botDiv);
+
+                // Clear input
+                demoInput.value = '';
+
+                // Scroll to bottom
+                demoChat.scrollTop = demoChat.scrollHeight;
+            }
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
